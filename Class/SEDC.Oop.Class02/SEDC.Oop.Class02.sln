@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SEDC.Oop.Class02.Entities",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SEDC.Oop.Class02.Interfaces", "SEDC.Oop.Class02.Interfaces\SEDC.Oop.Class02.Interfaces.csproj", "{474688B4-5920-41F9-A897-791DDB6757C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDC.Oop.Class02.Exercise1", "SEDC.Oop.Class02.Exercise1\SEDC.Oop.Class02.Exercise1.csproj", "{D4B50BFF-3636-453C-B291-1F9AA05B64BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SEDC.Oop.Class02.Exercise1", "SEDC.Oop.Class02.Exercise1\SEDC.Oop.Class02.Exercise1.csproj", "{D4B50BFF-3636-453C-B291-1F9AA05B64BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDC.Oop.Class02.BonusHomework", "SEDC.Oop.Class02.BonusHomework\SEDC.Oop.Class02.BonusHomework.csproj", "{6BBE4B72-F226-43C2-90D9-1ECF7CE9FC98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{D4B50BFF-3636-453C-B291-1F9AA05B64BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4B50BFF-3636-453C-B291-1F9AA05B64BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4B50BFF-3636-453C-B291-1F9AA05B64BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BBE4B72-F226-43C2-90D9-1ECF7CE9FC98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BBE4B72-F226-43C2-90D9-1ECF7CE9FC98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BBE4B72-F226-43C2-90D9-1ECF7CE9FC98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BBE4B72-F226-43C2-90D9-1ECF7CE9FC98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
