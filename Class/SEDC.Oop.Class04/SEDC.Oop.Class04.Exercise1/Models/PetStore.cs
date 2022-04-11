@@ -8,7 +8,7 @@ namespace SEDC.Oop.Class04.Exercise1.Models
 {
     public class PetStore<T> where T : Pet
     {
-        public List<T> Pets { get; set; }
+        private List<T> Pets { get; set; }
 
         public PetStore()
         {
