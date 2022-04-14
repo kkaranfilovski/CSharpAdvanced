@@ -45,5 +45,28 @@ namespace SEDC.Oop.Class05.Data
         {
             return Users.FirstOrDefault(user => user.UserName == userName);
         }
+
+        public static void AddNewUser(User user)
+        {
+            Users.Add(user);
+        }
+
+        public static void RemoveUser(User user)
+        {
+            Users.Remove(user);
+        }
+
+        public static List<User> GetUsersForRemoval()
+        {
+            List<User> usersForRemoval = new List<User>();
+            foreach(var user in Users)
+            {
+                if (!user.isLoggedIn)
+                {
+                    usersForRemoval.Add(user);
+                }
+            }
+            return usersForRemoval;
+        }
     }
 }

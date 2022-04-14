@@ -15,7 +15,7 @@ namespace SEDC.Oop.Class05.Services.UserServices
     public class UserService : IUser
     {
 
-        public void LogIn()
+        public User LogIn()
         {
             while (true)
             {
@@ -24,29 +24,16 @@ namespace SEDC.Oop.Class05.Services.UserServices
                     string userName = Validations.GetUserName();
                     var user = InMemoryDatabase.GetUserByUserName(userName);
 
-                    if(user != null)
+                    if (user != null)
                     {
                         if (Validations.ValidatePassword(user))
                         {
                             Console.ForegroundColor = ConsoleColor.Green;
                             Console.WriteLine($"Successful Login! Welcome {user.Role}!");
                             Console.ResetColor();
-                            
-                            if(user.Role == Roles.Administrator)
-                            {
-                                Screens.AdminMenu();
-                                break;
-                            }
-                            else if(user.Role == Roles.Maintenance)
-                            {
-                                Screens.MaintenanceMenu();
-                                break;
-                            }
-                            else if(user.Role == Roles.Manager)
-                            {
-                                Screens.ManagerMenu();
-                                break;
-                            }
+                            Thread.Sleep(1000);
+                            user.isLoggedIn = true;
+                            return user;
                         }
                     }
                     else
@@ -61,9 +48,33 @@ namespace SEDC.Oop.Class05.Services.UserServices
             }
         }
 
-        public void ChangePassword()
+        public void ChangePassword(User user)
         {
-            
+            while (true)
+            {
+                try
+                {
+                    if (Validations.ValidatePassword(user))
+                    {
+                        string newPassword = Validations.GetNewPassword();
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("Succesfully changed password");
+                        Console.ResetColor();
+                        Thread.Sleep(1000);
+                        user.Password = newPassword;
+                        break;
+                    }
+                    else
+                    {
+                        throw new Exception("Old password does not match.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    continue;
+                }
+            }
         }
     }
 }

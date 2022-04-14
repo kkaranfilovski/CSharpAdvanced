@@ -9,7 +9,7 @@ namespace SEDC.Oop.Class05.Services.Interfaces
 {
     public interface IUser
     {
-        public void LogIn();
-        public void ChangePassword();
+        User LogIn();
+        void ChangePassword(User user);
     }
 }
