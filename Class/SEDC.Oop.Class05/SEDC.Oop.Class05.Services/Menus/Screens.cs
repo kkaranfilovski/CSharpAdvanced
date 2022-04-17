@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SEDC.Oop.Class05.Services.Menus
+﻿namespace SEDC.Oop.Class05.Services.Menus
 {
     public static class Screens
     {
@@ -39,6 +33,14 @@ namespace SEDC.Oop.Class05.Services.Menus
             Console.WriteLine("5. Exit");
         }
 
+        public static void DriverManagerMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("Enter a number to choose one of the following:");
+            Console.WriteLine("1. Assign driver");
+            Console.WriteLine("2. Unassign driver");
+        }
+
         public static void MaintenanceMenu()
         {
             Console.Clear();
@@ -48,6 +50,6 @@ namespace SEDC.Oop.Class05.Services.Menus
             Console.WriteLine("2. License plate status");
             Console.WriteLine("3. Change password");
             Console.WriteLine("4. Exit");
-        }
+        }        
     }
 }

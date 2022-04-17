@@ -1,10 +1,5 @@
 ﻿using SEDC.Oop.Class05.Models.Enums;
 using SEDC.Oop.Class05.Models.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SEDC.Oop.Class05.Data
 {
@@ -23,21 +18,29 @@ namespace SEDC.Oop.Class05.Data
         {
             Cars = new List<Car>
             {
-                new Car("ford fiesta", "SK5631AZ", new DateTime(2022,11,15)),
-                new Car("Citroen c3", "SK2222PP", new DateTime(2023, 3, 3))
+                new Car("ford fiesta", "SK5631AZ", new DateTime(2021,11,15)),
+                new Car("Citroen c3", "SK2222PP", new DateTime(2023, 3, 3)),
+                new Car("Chevrolet Spark", "SK7777KL", new DateTime(2022, 5, 20)),
+                new Car("Mercedes Benz", "SK6969KO", new DateTime(2025, 5, 20)),
+                new Car("Renault Scenic", "SK7667OL", new DateTime(2022, 5, 20)),
+                new Car("Volkswagen Golf", "SK9999SH", new DateTime(2025, 5, 20))
             };
 
             Users = new List<User>
             {
                 new User("admin1", "admin1", Roles.Administrator),
-                new User("bobsky", "bobsky1", Roles.Manager),
+                new User("stanko", "stanko1", Roles.Manager),
                 new User("petko", "petko1", Roles.Maintenance)
             };
 
             Drivers = new List<Driver>
             {
-                new Driver("kristijan", "karanfilovski", Shifts.Morning, "ASD123", new DateTime(2024, 5, 3)),
-                new Driver("ilija", "mitev", Shifts.Afternoon, "QWE123", new DateTime(2025, 5, 10))
+                new Driver("kristijan", "karanfilovski", Shifts.NoShift, "ASD123", new DateTime(2021, 11, 15)),
+                new Driver("ilija", "mitev", Shifts.NoShift, "QWE123", new DateTime(2025, 5, 10)),
+                new Driver("Radmila", "Petrushevska", Shifts.NoShift, "ZXC123", new DateTime(2022, 5, 20)),
+                new Driver("Stefan", "Ivanovski", Shifts.NoShift, "ASD123", new DateTime(2025, 11, 15)),
+                new Driver("Aleksandar", "Zivkovic", Shifts.NoShift, "QWE123", new DateTime(2025, 5, 10)),
+                new Driver("Vlatko", "Tasevski", Shifts.NoShift, "ZXC123", new DateTime(2022, 5, 20))
             };
         }
 
@@ -59,7 +62,7 @@ namespace SEDC.Oop.Class05.Data
         public static List<User> GetUsersForRemoval()
         {
             List<User> usersForRemoval = new List<User>();
-            foreach(var user in Users)
+            foreach (var user in Users)
             {
                 if (!user.isLoggedIn)
                 {
@@ -67,6 +70,26 @@ namespace SEDC.Oop.Class05.Data
                 }
             }
             return usersForRemoval;
+        }
+
+        public static List<Car> GetAllCars()
+        {
+            return Cars;
+        }
+
+        public static List<Driver> GetAllDrivers()
+        {
+            return Drivers;
+        }
+
+        public static List<Driver> GetAllFreeDrivers()
+        {
+            return Drivers.Where(x => x.LicenseExpiryDate > DateTime.Now && x.Shift == Shifts.NoShift).ToList();
+        }
+
+        public static List<Driver> GetAllAssignedDrivers()
+        {
+            return Drivers.Where(x => x.Shift != Shifts.NoShift).ToList();
         }
     }
 }

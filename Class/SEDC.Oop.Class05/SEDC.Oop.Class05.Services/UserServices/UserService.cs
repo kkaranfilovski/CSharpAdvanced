@@ -1,14 +1,7 @@
 ﻿using SEDC.Oop.Class05.Data;
-using SEDC.Oop.Class05.Models.Enums;
 using SEDC.Oop.Class05.Models.Models;
 using SEDC.Oop.Class05.Services.Helpers;
 using SEDC.Oop.Class05.Services.Interfaces;
-using SEDC.Oop.Class05.Services.Menus;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SEDC.Oop.Class05.Services.UserServices
 {
@@ -43,7 +36,7 @@ namespace SEDC.Oop.Class05.Services.UserServices
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    Helper.ShowError(ex);
                 }
             }
         }
@@ -64,14 +57,10 @@ namespace SEDC.Oop.Class05.Services.UserServices
                         user.Password = newPassword;
                         break;
                     }
-                    else
-                    {
-                        throw new Exception("Old password does not match.");
-                    }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    Helper.ShowError(ex);
                     continue;
                 }
             }

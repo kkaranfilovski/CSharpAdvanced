@@ -1,10 +1,5 @@
 ﻿using SEDC.Oop.Class05.Models.Enums;
 using SEDC.Oop.Class05.Services.Menus;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SEDC.Oop.Class05.Services.UserServices
 {
@@ -12,6 +7,8 @@ namespace SEDC.Oop.Class05.Services.UserServices
     {
         private UserService userService = new UserService();
         private AdminService adminService = new AdminService();
+        private MaintenanceService maintenanceService = new MaintenanceService();
+        private ManagerService managerService = new ManagerService();
 
         public void Main()
         {
@@ -26,11 +23,11 @@ namespace SEDC.Oop.Class05.Services.UserServices
                 }
                 else if (user.Role == Roles.Maintenance)
                 {
-                    Screens.MaintenanceMenu();
+                    maintenanceService.MaintenanceMenu(user);
                 }
                 else if (user.Role == Roles.Manager)
                 {
-                    Screens.ManagerMenu();
+                    managerService.ManagerMenu(user);
                 }
             }
         }

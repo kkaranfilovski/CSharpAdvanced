@@ -3,18 +3,12 @@ using SEDC.Oop.Class05.Models.Models;
 using SEDC.Oop.Class05.Services.Helpers;
 using SEDC.Oop.Class05.Services.Menus;
 using SEDC.Oop.Class05.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SEDC.Oop.Class05.Services.Interfaces;
 
 namespace SEDC.Oop.Class05.Services.UserServices
 {
-    public class AdminService
+    public class AdminService : UserService, IAdmin
     {
-        private UserService userService = new UserService();
-
         public void AdminMenu(User user)
         {
             while (true)
@@ -34,9 +28,10 @@ namespace SEDC.Oop.Class05.Services.UserServices
                 }
                 else if (selection == "3")
                 {
-                    userService.ChangePassword(user);
+                    ChangePassword(user);
+                    continue;
                 }
-                else if(selection == "4")
+                else if (selection == "4")
                 {
                     user.isLoggedIn = false;
                     break;
@@ -49,7 +44,7 @@ namespace SEDC.Oop.Class05.Services.UserServices
             }
         }
 
-        private void AddNewUser()
+        public void AddNewUser()
         {
             while (true)
             {
@@ -59,7 +54,7 @@ namespace SEDC.Oop.Class05.Services.UserServices
                     Console.WriteLine("===== ADD NEW USER =====");
 
                     string userName = Validations.GetUserName();
-                    if(InMemoryDatabase.GetUserByUserName(userName) != null)
+                    if (InMemoryDatabase.GetUserByUserName(userName) != null)
                     {
                         throw new Exception("There is already user with that username. Try another one");
                     }
@@ -78,16 +73,13 @@ namespace SEDC.Oop.Class05.Services.UserServices
                 }
                 catch (Exception ex)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine(ex.Message);
-                    Console.ResetColor();
-                    Thread.Sleep(1500);
+                    Helper.ShowError(ex);
                     continue;
                 }
             }
         }
 
-        private void RemoveUser()
+        public void RemoveUser()
         {
             while (true)
             {
@@ -116,7 +108,7 @@ namespace SEDC.Oop.Class05.Services.UserServices
                     string selection = Console.ReadLine();
                     int parsedSelection = Validations.ParseInput(selection);
 
-                    if(parsedSelection > users.Count || parsedSelection < 0)
+                    if (parsedSelection > users.Count || parsedSelection < 0)
                     {
                         throw new Exception("Invalid selection. Select valid choice");
                     }
@@ -131,15 +123,12 @@ namespace SEDC.Oop.Class05.Services.UserServices
                         Console.ResetColor();
                         Thread.Sleep(1500);
                         break;
-                    }     
+                    }
                 }
                 catch (Exception ex)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine(ex.Message);
-                    Console.ResetColor();
-                    Thread.Sleep(1500);
-                    continue; 
+                    Helper.ShowError(ex);
+                    continue;
                 }
             }
         }

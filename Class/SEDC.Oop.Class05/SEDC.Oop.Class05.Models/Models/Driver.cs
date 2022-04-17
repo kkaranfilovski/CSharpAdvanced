@@ -1,13 +1,9 @@
 ﻿using SEDC.Oop.Class05.Models.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SEDC.Oop.Class05.Models.Interfaces;
 
 namespace SEDC.Oop.Class05.Models.Models
 {
-    public class Driver
+    public class Driver : IExpiryDate
     {
         public static int IdCounter { get; set; } = 0;
         public int Id { get; set; }
@@ -16,16 +12,17 @@ namespace SEDC.Oop.Class05.Models.Models
         public Shifts Shift { get; set; }
         public Car Car { get; set; }
         public string License { get; set; }
-        public DateTime LicenseExpieryDate { get; set; }
+        public DateTime LicenseExpiryDate { get; set; }
 
         public Driver(string fName, string lName, Shifts shift, string license, DateTime expireyDate)
         {
-            Id = IdCounter++;
+            Id = IdCounter += 1;
             FirstName = fName;
             LastName = lName;
             Shift = shift;
             License = license;
-            LicenseExpieryDate = expireyDate;
+            Car = new Car();
+            LicenseExpiryDate = expireyDate;
         }
     }
 }
