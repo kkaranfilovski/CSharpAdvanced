@@ -1,4 +1,4 @@
-﻿using SEDC.Oop.Class11.Homework.TreeCommand.Helpers.cs;
+﻿using SEDC.Oop.Class11.Homework.TreeCommand.HelperService;
 
 namespace SEDC.Oop.Class11.Homework.TreeCommand.Entities
 {
@@ -53,6 +53,7 @@ namespace SEDC.Oop.Class11.Homework.TreeCommand.Entities
                     var filePath = $"{space}{file.Split(@"\").Last()}";
                     File.Add(filePath);
 
+
                     Helper.WriteFiles(filePath);
                 }
 
@@ -68,15 +69,9 @@ namespace SEDC.Oop.Class11.Homework.TreeCommand.Entities
             }
             catch (DirectoryNotFoundException ex)
             {
+                Logger.Log(ex.Message);
                 Console.WriteLine(ex.Message);
             }
-        }
-
-        protected DirectoryInfo GetFolder(string folderName)
-        {
-            DirectoryInfo asd = new DirectoryInfo(Root);
-            DirectoryInfo folderInfo = asd.GetDirectories(folderName, SearchOption.AllDirectories).First();
-            return folderInfo;
         }
     }
 }

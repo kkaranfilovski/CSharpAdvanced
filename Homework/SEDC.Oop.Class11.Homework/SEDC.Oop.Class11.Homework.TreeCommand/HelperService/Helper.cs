@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SEDC.Oop.Class11.Homework.TreeCommand.Helpers.cs
+namespace SEDC.Oop.Class11.Homework.TreeCommand.HelperService
 {
     public static class Helper
     {

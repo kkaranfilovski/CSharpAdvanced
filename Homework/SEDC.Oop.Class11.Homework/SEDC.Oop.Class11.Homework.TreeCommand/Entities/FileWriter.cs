@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SEDC.Oop.Class11.Homework.TreeCommand.HelperService;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,7 @@ namespace SEDC.Oop.Class11.Homework.TreeCommand.Entities
             catch (Exception ex)
             {
                 Console.WriteLine("");
+                Logger.Log(ex.Message);
                 Console.WriteLine(ex.Message);
             }
         }

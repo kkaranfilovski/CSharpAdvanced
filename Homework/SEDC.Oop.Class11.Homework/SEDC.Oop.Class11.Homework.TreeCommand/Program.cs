@@ -1,4 +1,5 @@
 ﻿using SEDC.Oop.Class11.Homework.TreeCommand.Entities;
+using SEDC.Oop.Class11.Homework.TreeCommand.HelperService;
 
 try
 {
@@ -21,6 +22,7 @@ try
 }
 catch (ApplicationException ex)
 {
+    Logger.Log(ex.Message);
     Console.WriteLine(ex.Message);
 }
 
